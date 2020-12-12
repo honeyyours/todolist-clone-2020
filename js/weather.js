@@ -1,6 +1,7 @@
 const weather = document.querySelector(".js-weather");
-const API_KEY = "2e640f7786b0bed8cfd008b86bda3535";
+const API_KEY_WEATHER = "2e640f7786b0bed8cfd008b86bda3535";
 const coords = "coords";
+const NowLocation = "nowloaction";
 
 function saveCoords(coordsObj) {
   localStorage.setItem(coords, JSON.stringify(coordsObj));
@@ -8,7 +9,7 @@ function saveCoords(coordsObj) {
 
 function getweather(lat, long) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY_WEATHER}&units=metric`
   )
     .then(function (response) {
       return response.json();
@@ -19,6 +20,7 @@ function getweather(lat, long) {
       const MaxTem = json.main.temp_max;
       const MinTem = json.main.temp_min;
       const local = json.name;
+      localStorage.setItem(NowLocation, JSON.stringify(local));
       weather.innerText = `온도 ${Temp} 
       최고기온 ${MaxTem}
       최저기온 ${MinTem}
@@ -52,6 +54,7 @@ function checkweather() {
   } else {
     const parsedcoords = JSON.parse(geoweather);
     getweather(parsedcoords.latitude, parsedcoords.longitude);
+    console.log("parsedcoords");
   }
 }
 

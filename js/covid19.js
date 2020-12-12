@@ -1,14 +1,11 @@
-/* Javascript 샘플 코드 */
-
 var xhr = new XMLHttpRequest();
 var url =
   "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson"; /*URL*/
-/*http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson*/
 var queryParams =
   "?" +
   encodeURIComponent("ServiceKey") +
   "=" +
-  "WsbdlD4bVjOHZQtGeljfoG7SS%2BrxvZe1%2FpR0bd5WzlpAQNpwAjhgNafGIy7RLvDt%2FsAAA4C%2FhvQpyjek8yxrHg%3D%3D"; /*Service Key*/
+  "ZTA0ThFuL3LhjBoSmkJi7q6KH45jxcI570l0pkn5UX20KxU0%2F3VRuNUf%2FjiK27E7BDnOuXW7JTdBd0eJiNDzdg%3D%3D"; /*Service Key*/
 queryParams +=
   "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /**/
 queryParams +=
@@ -17,12 +14,12 @@ queryParams +=
   "&" +
   encodeURIComponent("startCreateDt") +
   "=" +
-  encodeURIComponent("20201111"); /**/
+  encodeURIComponent("20200410"); /**/
 queryParams +=
   "&" +
   encodeURIComponent("endCreateDt") +
   "=" +
-  encodeURIComponent("20201211"); /**/
+  encodeURIComponent("20200410"); /**/
 xhr.open("GET", url + queryParams);
 xhr.onreadystatechange = function () {
   if (this.readyState == 4) {
